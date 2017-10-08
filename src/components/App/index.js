@@ -1,32 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
-import { render } from 'react-dom';
-//import { Provider, connect } from 'react-redux';
-//import { ThemeProvider } from 'styled-components';
 
-if (module && module.hot) {
-  module.hot.accept();
-}
-
-//console.log(`Looks like we are in ${process.env.NODE_ENV} mode!`);
+import Item from '../Item'
 
 class App extends Component {
   // static propTypes = {};
-  //
-  // static defaultProps = {
-  //   hideSideMenu: false,
-  //   auth: {
-  //     loading: true
-  //   }
-  // };
 
-  render() {
+  static defaultProps = {
+    items: [],
+  };
+
+  render () {
+
+    const {
+      items
+    } = this.props;
+
     return (
       <main>
+        {!!items.length &&
         <ul>
-          <li>Test</li>
-        </ul>
+          {items.map((item, i) => {
+            return <Item {...item} key={i}/>
+          })}
+        </ul>}
       </main>
     );
   }
 }
+
+export const mapStateToProps = (state) => {
+  return {
+    items: state.items
+  }
+};
+
+export default connect(
+  mapStateToProps
+)(App)

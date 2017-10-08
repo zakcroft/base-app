@@ -1,0 +1,6 @@
+export const ADD_ITEM = 'ADD_ITEM';
+export const CHANGE_NAME = 'CHANGE_NAME';
+export const CHANGE_AVAILABILITY = 'CHANGE_AVAILABILITY';
+export const CHANGE_PRICE = 'CHANGE_PRICE';
+
+

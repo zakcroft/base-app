@@ -6,11 +6,10 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/App'
-    //another: './src/common-chunk.js'
+    app: './src/main'
   },
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].bundle.js',
   },
